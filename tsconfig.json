@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // Target modern JavaScript (adjust as needed)
+    "module": "CommonJS", // CommonJS for Node.js compatibility
+    "declaration": true, // Generate .d.ts type definition files
+    "outDir": "./dist", // Output directory for compiled files
+    "rootDir": "./src", // Source directory for TypeScript files
+    "strict": true, // Enable strict type checking
+    "esModuleInterop": true, // Enable interoperability with CommonJS
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "moduleResolution": "node" // Use Node.js module resolution
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
