@@ -26,9 +26,6 @@ interface SpotaScheduleConfig {
   callbackUrl?: string;
 }
 
-
-
-
 interface SpotaResponse<T = any> extends AxiosResponse<T> { }
 
 // Request builder with chainable schedule method
@@ -145,10 +142,3 @@ class Spota {
 // Export singleton instance and utilities
 const spota = new Spota();
 export { spota, Spota, RequestMethods, SpotaRequestPayload, SpotaScheduleConfig, SpotaRequest };
-
-
-spota.get("https://google.com").schedule({
-  rule: Spota.reoccurence({ hour: 0, minute: 0, second: 0, tz: "EST/X" })
-}).then(() => {
-  console.log("scheduled")
-})

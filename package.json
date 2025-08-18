@@ -1,7 +1,7 @@
 {
-  "name": "my-typescript-package",
+  "name": "spota.js",
   "version": "1.0.0",
-  "description": "A TypeScript npm package",
+  "description": "An sdk for sponntaneous servered request scheduling",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
