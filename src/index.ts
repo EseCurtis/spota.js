@@ -1,5 +1,5 @@
-import schedule from 'node-schedule';
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import schedule from 'node-schedule';
 
 // Enum for HTTP methods
 enum RequestMethods {
@@ -24,6 +24,7 @@ interface SpotaRequestPayload {
 interface SpotaScheduleConfig {
   rule?: schedule.RecurrenceRule | string; // Support cron strings or RecurrenceRule
   callbackUrl?: string;
+  jobName?: string;
 }
 
 interface SpotaResponse<T = any> extends AxiosResponse<T> { }
@@ -70,6 +71,7 @@ class SpotaRequest {
         rule: typeof config.rule === 'string' ? config.rule : config.rule,
         request: this.payload,
         callbackUrl: config.callbackUrl,
+        jobName: config?.jobName
       });
       return response as any;
     } catch (error: any) {
@@ -81,6 +83,7 @@ class SpotaRequest {
   async execute<T = any>(): Promise<SpotaResponse<T>> {
     return this.schedule<T>({});
   }
+
 }
 
 // Spota client
@@ -141,4 +144,5 @@ class Spota {
 
 // Export singleton instance and utilities
 const spota = new Spota();
-export { spota, Spota, RequestMethods, SpotaRequestPayload, SpotaScheduleConfig, SpotaRequest };
+export { RequestMethods, spota, Spota, SpotaRequest, SpotaRequestPayload, SpotaScheduleConfig };
+
